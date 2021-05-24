@@ -35,19 +35,20 @@ public class Hand {
     return handValue;
   }
 
-  String displayFirstCard() {
-    return ConsoleCard.display(cards.get(0));
-  }
-
-  boolean dealerMustDrawCard() {
-    return value() <= 16;
+  public List<Card> cards() { // QUERY METHOD
+    // SNAPSHOT of current state - very QUERY like
+    return List.copyOf(cards);
   }
 
   void display() {
     System.out.println(cards.stream()
                             .map(ConsoleCard::display)
                             .collect(Collectors.joining(
-                               ansi().cursorUp(6).cursorRight(1).toString())));
+                                    ansi().cursorUp(6).cursorRight(1).toString())));
+  }
+
+  boolean dealerMustDrawCard() {
+    return value() <= 16;
   }
 
   public void drawFrom(Deck deck) {
