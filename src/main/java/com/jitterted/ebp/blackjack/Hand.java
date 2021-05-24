@@ -13,6 +13,10 @@ public class Hand {
   public Hand() {
   }
 
+  public Card firstCard() {
+      return cards().get(0);
+  }
+
   private int value() {
     int handValue = cards
         .stream()
