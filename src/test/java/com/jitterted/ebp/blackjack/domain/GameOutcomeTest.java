@@ -36,6 +36,9 @@ class GameOutcomeTest {
         Game game = new Game(playerDealtBlackjack);
         game.initialDeal();
 
+        assertThat(game.isPlayerDone())
+                .isTrue();
+
         assertThat(game.determineOutcome())
                 .isEqualByComparingTo(GameOutcome.PLAYER_WINS_BLACKJACK);
     }

@@ -19,6 +19,9 @@ public class Game {
   public void initialDeal() {
     dealRoundOfCards();
     dealRoundOfCards();
+    if (playerHand.isBlackjack()) {
+      playerDone = true;
+    }
   }
 
   private void dealRoundOfCards() {
@@ -28,6 +31,7 @@ public class Game {
   }
 
   public GameOutcome determineOutcome() {
+    // Guard: if !playerDone (game not over yet!), throw Exception
     if (playerHand.isBlackjack()) {
       return GameOutcome.PLAYER_WINS_BLACKJACK;
     }
@@ -65,11 +69,13 @@ public class Game {
   }
 
   public void playerHits() {
+    // Guard: if playerDone, throw Exception
     playerHand.drawFrom(deck);
     playerDone = playerHand.isBusted();
   }
 
   public void playerStands() {
+    // Guard: if playerDone, throw Exception
     playerDone = true;
   }
 
