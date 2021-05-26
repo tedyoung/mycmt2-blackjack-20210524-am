@@ -7,6 +7,17 @@ import static org.assertj.core.api.Assertions.*;
 class GameOutcomeTest {
 
     @Test
+    public void playerStandsAndPlayerIsDone() throws Exception {
+        Game game = new Game();
+        game.initialDeal();
+
+        game.playerStands();
+
+        assertThat(game.isPlayerDone())
+                .isTrue();
+    }
+
+    @Test
     public void playerBeatsDealer() throws Exception {
         Game game = new Game(StubDeck.createPlayerStandsAndBeatsDealerDeck());
         game.initialDeal();
