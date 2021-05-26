@@ -27,4 +27,9 @@ public class WebIntegrationTest {
                .andExpect(status().is3xxRedirection());
     }
 
+    @Test
+    public void getOfGameEndpointIs200Ok() throws Exception {
+        mockMvc.perform(get("/game"))
+               .andExpect(status().isOk());
+    }
 }
