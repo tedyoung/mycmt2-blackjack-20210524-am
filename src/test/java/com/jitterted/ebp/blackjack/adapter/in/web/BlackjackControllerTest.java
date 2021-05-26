@@ -52,4 +52,15 @@ class BlackjackControllerTest {
                 .containsOnly("10♦", "K♦");
     }
 
+    @Test
+    public void hitCommandDealsThirdCardToPlayer() throws Exception {
+        Game game = new Game();
+        BlackjackController blackjackController = new BlackjackController(game);
+        blackjackController.startGame();
+
+        blackjackController.hitCommand();
+
+        assertThat(game.playerHand().cards())
+                .hasSize(3);
+    }
 }
