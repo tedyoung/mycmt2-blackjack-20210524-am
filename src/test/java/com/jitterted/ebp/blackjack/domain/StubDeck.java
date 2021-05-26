@@ -20,12 +20,12 @@ public class StubDeck extends Deck {
     iterator = cards.listIterator();
   }
 
-  static StubDeck createPlayerStandsAndBeatsDealerDeck() {
+  public static StubDeck createPlayerStandsAndBeatsDealerDeck() {
       return new StubDeck(Rank.QUEEN, Rank.EIGHT,
                           Rank.TEN, Rank.JACK);
   }
 
-  static StubDeck createPlayerHitsGoesBustDeck() {
+  public static StubDeck createPlayerHitsGoesBustDeck() {
       return new StubDeck(Rank.QUEEN, Rank.EIGHT,
                           Rank.TEN, Rank.FOUR,
                           Rank.THREE);
