@@ -19,12 +19,16 @@ public class BlackjackController {
 
     @PostMapping("/start-game")
     public String startGame() {
+        // Game game = gameService.newGame()
+        // return Game ID
         game.initialDeal();
         return redirectPage();
     }
 
     @PostMapping("/hit")
     public String hitCommand() {
+        // requires gameId and playerId to be passed in
+        // gameService.playerHitsFor(gameId, playerId)
         game.playerHits();
         return redirectPage();
     }
